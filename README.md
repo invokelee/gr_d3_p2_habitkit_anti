@@ -1,16 +1,53 @@
-# React + Vite
+# 🌱 GrowBit Web MVP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GrowBit은 iOS 네이티브(Swift) 버전을 출시하기 전, 핵심 기능과 사용자 경험(UX) 컨셉을 검증하기 위해 구축된 **로컬-퍼스트(Local-first) 기반의 웹 브라우저용 MVP(Minimum Viable Product)** 입니다.
 
-Currently, two official plugins are available:
+사용자의 프라이버시를 지키면서 '습관(Habit)'과 '학습(Study)' 루틴을 효과적으로 관리할 수 있도록 설계되었습니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 주요 기능 (Features)
 
-## React Compiler
+1. **식물 테마의 성장형 그리드 (Grow Grid Engine)**
+   - 기존의 단순한 네모 모양의 잔디 심기(Contribution Graph)를 탈피했습니다.
+   - 둥근 흙(Soil) 모양의 타일 위에 **씨앗(🫘) ➡️ 새싹(🌱) ➡️ 풀잎(🌿) ➡️ 나무(🌳)** 가 심어지며 시각적인 성장의 즐거움을 제공합니다.
+   - 모바일 화면 폭에 맞춰 자동으로 줄바꿈(Flex-wrap)되어 정원(Garden)을 가꾸는 듯한 고유한 레이아웃을 갖습니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **포모도로 타이머 연동 (Study Module)**
+   - 내장된 25분 집중 타이머를 통해 학습 또는 업무 시간을 관리할 수 있습니다.
+   - 타이머가 완료되면 **등록된 'Study' 타입의 습관에 자동으로 식물 아이콘(Bit)이 1단계씩 성장**합니다.
+   - 브라우저 탭 타이틀에 실시간 남은 시간이 표시되어 백그라운드에서도 직관적으로 시간을 확인할 수 있습니다. (Dynamic Island 컨셉 대체)
 
-## Expanding the ESLint configuration
+3. **로컬-퍼스트 프라이버시 (Local-first Privacy)**
+   - 모든 습관 달성 기록과 타이머 정보는 외부 서버로 전송되지 않습니다.
+   - 브라우저의 내부 저장소(`LocalStorage`)에 안전하게 저장되어, 새로고침을 해도 데이터가 보존됩니다.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. **미니멀리즘 디자인 및 다크 모드**
+   - Apple HIG(Human Interface Guidelines)를 참고한 깔끔한 UI를 채택했습니다.
+   - 기기의 시스템 설정에 따라 **다크 모드 / 라이트 모드**가 자연스럽게 전환됩니다.
+
+## 🛠 기술 스택 (Tech Stack)
+
+- **프론트엔드 프레임워크**: React (Vite)
+- **상태 관리 및 데이터베이스**: React Hooks + 브라우저 `LocalStorage`
+- **스타일링**: Vanilla CSS (CSS Variables를 활용한 테마 구현)
+- **아이콘**: Native OS Emojis
+
+## 💻 설치 및 실행 방법 (How to Run)
+
+1. 패키지 설치
+```bash
+npm install
+```
+
+2. 개발 서버 실행
+```bash
+npm run dev
+# 외부 접속(WSL 환경 등)이 필요한 경우: npm run dev -- --host 0.0.0.0
+```
+
+3. 브라우저에서 `http://localhost:5173` (또는 할당된 포트)로 접속하여 사용합니다.
+
+## 📝 사용 가이드
+
+- **`+ Add Bit` 버튼**: 오늘(Today) 날짜의 타일을 1단계 빠르게 성장시킬 때 누릅니다.
+- **빈 원형 타일 직접 클릭**: 과거의 특정 날짜를 클릭하면 누락된 기록을 보정(Backfill)할 수 있습니다.
+- 새로운 습관은 하단의 입력창을 통해 원하는 이름으로 추가할 수 있습니다.
